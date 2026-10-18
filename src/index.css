@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --primary: 234 55% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 345 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 234 55% 58%;
+
+    --radius: 0.375rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 40%;
+    --sidebar-primary: 234 55% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 234 55% 58%;
+
+    --severity-critical: 345 72% 51%;
+    --severity-high: 25 95% 53%;
+    --severity-medium: 38 92% 50%;
+    --severity-low: 142 70% 40%;
+  }
+
+  .dark {
+    --background: 240 6% 6%;
+    --foreground: 0 0% 90%;
+
+    --card: 240 5% 9%;
+    --card-foreground: 0 0% 90%;
+
+    --popover: 240 5% 9%;
+    --popover-foreground: 0 0% 90%;
+
+    --primary: 234 55% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 14%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 240 4% 14%;
+    --muted-foreground: 0 0% 50%;
+
+    --accent: 240 4% 14%;
+    --accent-foreground: 0 0% 90%;
+
+    --destructive: 345 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 100% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 100% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 199 100% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 240 4% 26%;
+    --input: 240 4% 26%;
+    --ring: 234 55% 60%;
+
+    --sidebar-background: 240 6% 5%;
+    --sidebar-foreground: 0 0% 55%;
+    --sidebar-primary: 234 55% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 10%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 240 4% 26%;
+    --sidebar-ring: 234 55% 60%;
+
+    --severity-critical: 345 90% 60%;
+    --severity-high: 25 100% 58%;
+    --severity-medium: 38 100% 55%;
+    --severity-low: 145 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    background-color: hsl(0 0% 100%);
+  }
+
+  html.dark {
+    background-color: hsl(240 6% 4%);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer base {
+  :root {
+    --cy-ink: 220 10% 4%;
+    --cy-night: 220 9% 7%;
+    --cy-surface: 220 8% 11%;
+    --cy-line: 220 8% 21%;
+    --cy-text: 210 20% 96%;
+    --cy-mute: 218 14% 64%;
+    --cy-signal: 193 100% 53%;
+    --cy-aqua: 166 88% 51%;
+    --cy-caution: 36 88% 63%;
+    --cy-paper: 210 8% 97%;
+    --cy-paperline: 214 18% 88%;
+    --cy-paperink: 222 40% 9%;
+    --cy-papermute: 220 10% 40%;
+  }
+  .cy-site { font-size: 16px; scroll-behavior: smooth; }
+  .cy-grid {
+    background-image: linear-gradient(hsl(var(--cy-line) / .45) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--cy-line) / .45) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  @keyframes cy-pulse { 0%,100% { opacity: .25 } 50% { opacity: 1 } }
+  @keyframes cy-rise { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: none } }
+  .cy-pulse { animation: cy-pulse 3.2s ease-in-out infinite; }
+  .cy-rise { animation: cy-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  @media (prefers-reduced-motion: reduce) { .cy-pulse, .cy-rise { animation: none; } html { scroll-behavior: auto; } }
+}
+
+/* Cyvance: precise, restrained motion and shared site surfaces. */
+:root {
+ --cy-ease: cubic-bezier(.22,.61,.36,1);
+ --cy-panel-shadow: 0 18px 50px -25px hsl(var(--cy-ink) / .6);
+ --cy-map-wash: linear-gradient(135deg, hsl(var(--cy-signal) / .045), transparent 55%, hsl(var(--cy-aqua) / .035));
+}
+.cy-site { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; letter-spacing: -0.01em; }
+.cy-site h1,.cy-site h2,.cy-site h3,.cy-site h4 { font-family: 'Sora', 'Manrope', sans-serif; letter-spacing: -0.02em; }
+.cy-wordmark { font-family: 'Sora', 'Manrope', sans-serif; font-weight: 700; letter-spacing: 0.16em; line-height: 1.1; }
+.cy-wordmark small { display: block; font-weight: 500; font-size: 8px; letter-spacing: 0.42em; color: hsl(var(--cy-mute)); margin-top: 3px; }
+html:has(.cy-site) { scroll-behavior: smooth; scroll-padding-top: 80px; }
+.cy-container { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 40px; }
+.cy-section { padding-block: 100px; }
+.cy-label { font-family: ui-monospace, monospace; font-size: 10px; text-transform: uppercase; line-height: 1.7; letter-spacing: 0; }
+.cy-headline { font-size: 60px; line-height: 1.08; font-weight: 500; }
+.cy-section-title { font-size: 44px; line-height: 1.14; font-weight: 500; }
+.cy-header { transition: background .3s var(--cy-ease), border-color .3s var(--cy-ease); border-bottom: 1px solid transparent; }
+.cy-header-solid { background: hsl(var(--cy-ink) / .94); backdrop-filter: blur(16px); border-color: hsl(var(--cy-line)); }
+.cy-logo img { transition: transform .35s var(--cy-ease); }
+.cy-logo:hover img { transform: scale(1.04); }
+.cy-navlink { position: relative; color: hsl(var(--cy-mute)); font-size: 13px; transition: color .2s; }
+.cy-navlink::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 1px; background: hsl(var(--cy-signal)); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--cy-ease); }
+.cy-navlink:hover,.cy-nav-active { color: hsl(var(--cy-text)); }
+.cy-navlink:hover::after,.cy-nav-active::after { transform: scaleX(1); }
+.cy-navlink:focus-visible,.cy-text-link:focus-visible,.cy-footer-link:focus-visible { outline: 2px solid hsl(var(--cy-signal)); outline-offset: 6px; border-radius: 2px; }
+.cy-button { transition: background .22s, color .22s, border-color .22s, transform .22s var(--cy-ease); font-family: inherit; }
+.cy-button:hover { transform: translateY(-2px); }
+.cy-button:active { transform: translateY(0); }
+.cy-text-link { transition: color .2s; }
+.cy-text-link:hover { color: hsl(var(--cy-signal)); }
+.cy-footer-link { display: inline-flex; gap: 18px; align-items: center; color: hsl(var(--cy-text) / .8); transition: color .2s; }
+.cy-footer-link svg { transition: transform .25s var(--cy-ease); }
+.cy-footer-link:hover { color: hsl(var(--cy-signal)); }
+.cy-footer-link:hover svg { transform: translate(2px,-2px); }
+.cy-menu,.cy-insight,.cy-results { animation: cy-rise .4s var(--cy-ease) both; }
+.cy-reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--cy-ease), transform .7s var(--cy-ease); }
+.cy-visible { opacity: 1; transform: none; }
+.cy-capability { background: hsl(var(--cy-night) / .5); transition: transform .3s var(--cy-ease), border-color .3s, background .3s, box-shadow .3s; }
+.cy-capability:hover,.cy-capability:focus-within { transform: translateY(-4px); border-color: hsl(var(--cy-signal) / .5); background: hsl(var(--cy-surface)); box-shadow: var(--cy-panel-shadow); }
+.cy-stage svg { transition: transform .3s var(--cy-ease); }
+.cy-stage:hover svg { transform: translateY(-3px); }
+.cy-flow-connector { width: 1px; height: 46px; margin-left: 50%; background: hsl(var(--cy-paperline)); }
+.cy-intelligence { padding: 5px 0 0; }
+.cy-map { position: relative; height: 240px; width: 100%; background: var(--cy-map-wash); }
+.cy-map-lines { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: hsl(var(--cy-line)); stroke-width: 1; }
+.cy-map-lines .cy-map-ring { stroke: hsl(var(--cy-line) / .6); stroke-dasharray: 2 6; }
+.cy-moving-line { stroke: hsl(var(--cy-signal) / .5); stroke-dasharray: 4 16; animation: cy-flow 6s linear infinite; }
+@keyframes cy-flow { to { stroke-dashoffset: -80; } }
+.cy-signal-list { position: absolute; left: 0; top: 10px; width: 28%; display: grid; gap: 12px; }
+.cy-signal-node { height: 60px; width: 100%; justify-content: flex-start; padding: 9px 12px; border: 1px solid hsl(var(--cy-line)); background: hsl(var(--cy-night)); color: hsl(var(--cy-mute)); text-align: left; transition: border-color .25s, color .25s, transform .25s; }
+.cy-signal-node span { font-size: 11px; font-weight: 400; }
+.cy-signal-node small { display: block; font-size: 9px; margin-top: 4px; color: hsl(var(--cy-mute)); }
+.cy-signal-node:hover,.cy-signal-node.cy-node-active { border-color: hsl(var(--cy-signal) / .55); color: hsl(var(--cy-signal)); background: hsl(var(--cy-surface)); }
+.cy-core { position: absolute; left: 54%; top: 50%; transform: translate(-50%,-50%); width: 106px; height: 106px; border: 1px solid hsl(var(--cy-signal) / .5); background: hsl(var(--cy-ink)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; border-radius: 8px; }
+.cy-core svg { color: hsl(var(--cy-signal)); }
+.cy-core span { font-size: 10px; font-weight: 500; }
+.cy-core small { font-family: ui-monospace, monospace; font-size: 7px; color: hsl(var(--cy-mute)); }
+.cy-output { position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 9px; padding: 15px 12px; border: 1px solid hsl(var(--cy-line)); background: hsl(var(--cy-night)); border-radius: 6px; font-size: 11px; line-height: 1.7; }
+.cy-output svg { color: hsl(var(--cy-aqua)); }
+.cy-insight { border-top: 1px solid hsl(var(--cy-line)); padding: 16px 0 8px; min-height: 130px; }
+.cy-demo { box-shadow: var(--cy-panel-shadow); transition: border-color .3s; }
+.cy-demo:hover { border-color: hsl(var(--cy-mute)); }
+.cy-demo-tab { color: hsl(var(--cy-mute)); font-size: 11px; }
+.cy-demo-tab:hover,.cy-demo-tab.cy-tab-active { background: hsl(var(--cy-surface)); color: hsl(var(--cy-text)); }
+.cy-result-tab { border-radius: 0; border-bottom: 1px solid transparent; padding-inline: 0; font-size: 11px; color: hsl(var(--cy-mute)); }
+.cy-result-tab:hover { background: transparent; color: hsl(var(--cy-text)); }
+.cy-result-tab.cy-result-active { border-color: hsl(var(--cy-signal)); color: hsl(var(--cy-text)); }
+.cy-results { min-height: 205px; }
+.cy-skip { position: fixed; left: 16px; top: -80px; z-index: 100; padding: 12px; color: hsl(var(--cy-ink)); background: hsl(var(--cy-text)); }
+.cy-skip:focus { top: 12px; }
+
+/* Premium depth, ambient motion and interaction polish. */
+.cy-hero::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 55% at 72% -5%, hsl(var(--cy-signal) / .08), transparent 60%),
+              radial-gradient(45% 45% at 8% 30%, hsl(var(--cy-aqua) / .05), transparent 65%); }
+.cy-hero::after { content: ''; position: absolute; inset: -25% -10%; pointer-events: none;
+  background: conic-gradient(from 200deg at 78% 8%, transparent 0deg, hsl(var(--cy-signal) / .045) 45deg, transparent 95deg);
+  animation: cy-aurora 16s ease-in-out infinite alternate; }
+.cy-hero > .cy-container { position: relative; z-index: 1; }
+@keyframes cy-aurora { from { transform: translate3d(0,0,0) rotate(0deg); } to { transform: translate3d(2%,3%,0) rotate(3deg); } }
+.cy-hero-enter > * { animation: cy-rise .9s var(--cy-ease) both; }
+.cy-hero-enter > *:nth-child(2) { animation-delay: .14s; }
+.cy-hero-enter > *:nth-child(3) { animation-delay: .28s; }
+.cy-hero-visual { animation: cy-rise 1s var(--cy-ease) .4s both; }
+.cy-reveal:nth-child(2) { transition-delay: .07s; }
+.cy-reveal:nth-child(3) { transition-delay: .14s; }
+.cy-reveal:nth-child(4) { transition-delay: .21s; }
+.cy-reveal:nth-child(5) { transition-delay: .28s; }
+.cy-reveal:nth-child(6) { transition-delay: .35s; }
+.cy-capability { position: relative; overflow: hidden; }
+.cy-capability::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: linear-gradient(135deg, hsl(var(--cy-signal) / .55), transparent 40%, hsl(var(--cy-aqua) / .35));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .4s var(--cy-ease); }
+.cy-capability:hover::before, .cy-capability:focus-within::before { opacity: 1; }
+.cy-button { will-change: transform; }
+.cy-button:active { transform: translateY(0) scale(.98); }
+.cy-magnetic { transition: transform .18s var(--cy-ease), background .22s, color .22s, border-color .22s; }
+@media(max-width:1023px) { .cy-headline { font-size: 52px; } .cy-map { height: 250px; } .cy-hero-visual { grid-template-columns: .65fr 1.35fr; } .cy-signal-node { padding: 8px; } .cy-output { padding: 12px 8px; gap: 6px; } }
+@media(max-width:767px) { .cy-container { padding-inline: 24px; } .cy-section { padding-block: 72px; } .cy-headline { font-size: 40px; } .cy-section-title { font-size: 34px; } .cy-hero-visual { grid-template-columns: 1fr; gap: 20px; } .cy-hero-visual > div:first-child { display: none; } .cy-map { height: 230px; } .cy-core { width: 84px; height: 94px; } .cy-signal-node { gap: 5px; padding: 7px; } .cy-signal-node small { font-size: 8px; } .cy-output { font-size: 9px; gap: 5px; padding: 10px 7px; } .cy-output svg { width: 12px; } .cy-insight { min-height: 160px; } }
+@media(prefers-reduced-motion:reduce) { html:has(.cy-site) { scroll-behavior: auto; } .cy-site *, .cy-site *::before, .cy-site *::after { animation: none !important; transition: none !important; } .cy-reveal { opacity: 1; transform: none; } .cy-button:hover,.cy-capability:hover,.cy-capability:focus-within { transform: none; } }
