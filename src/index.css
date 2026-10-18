@@ -173,8 +173,8 @@
  --cy-panel-shadow: 0 18px 50px -25px hsl(var(--cy-ink) / .6);
  --cy-map-wash: linear-gradient(135deg, hsl(var(--cy-signal) / .035), transparent 55%, hsl(var(--cy-aqua) / .025));
 }
-.cy-site { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; letter-spacing: -0.01em; }
-.cy-site h1,.cy-site h2,.cy-site h3,.cy-site h4 { font-family: 'Sora', 'Manrope', sans-serif; letter-spacing: -0.02em; }
+.cy-site { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; letter-spacing: 0; }
+.cy-site h1,.cy-site h2,.cy-site h3,.cy-site h4 { font-family: 'Sora', 'Manrope', sans-serif; letter-spacing: 0; }
 .cy-wordmark { font-family: 'Sora', 'Manrope', sans-serif; font-weight: 700; letter-spacing: 0.16em; line-height: 1.1; }
 .cy-wordmark small { display: block; font-weight: 500; font-size: 8px; letter-spacing: 0.42em; color: hsl(var(--cy-mute)); margin-top: 3px; }
 html:has(.cy-site) { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -240,8 +240,8 @@ html:has(.cy-site) { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 /* Premium depth, ambient motion and interaction polish. */
 .cy-hero::before { content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(60% 55% at 72% -5%, hsl(var(--cy-signal) / .08), transparent 60%),
-              radial-gradient(45% 45% at 8% 30%, hsl(var(--cy-aqua) / .05), transparent 65%); }
+  background: radial-gradient(60% 55% at 72% -5%, hsl(var(--cy-signal) / .07), transparent 60%),
+              radial-gradient(45% 45% at 8% 30%, hsl(var(--cy-aqua) / .035), transparent 65%); }
 .cy-hero::after { content: ''; position: absolute; inset: -25% -10%; pointer-events: none;
   background: conic-gradient(from 200deg at 78% 8%, transparent 0deg, hsl(var(--cy-signal) / .045) 45deg, transparent 95deg);
   animation: cy-aurora 16s ease-in-out infinite alternate; }
