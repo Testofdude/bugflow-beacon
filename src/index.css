@@ -140,19 +140,19 @@
 
 @layer base {
   :root {
-    --cy-ink: 220 10% 4%;
-    --cy-night: 220 9% 7%;
-    --cy-surface: 220 8% 11%;
-    --cy-line: 220 8% 21%;
-    --cy-text: 210 20% 96%;
-    --cy-mute: 218 14% 64%;
-    --cy-signal: 0 0% 72%;
-    --cy-aqua: 0 0% 76%;
-    --cy-caution: 0 0% 78%;
-    --cy-paper: 210 8% 97%;
-    --cy-paperline: 214 18% 88%;
-    --cy-paperink: 222 40% 9%;
-    --cy-papermute: 220 10% 40%;
+    --cy-ink: 222 44% 5%;
+    --cy-night: 222 34% 8%;
+    --cy-surface: 222 28% 12%;
+    --cy-line: 220 18% 21%;
+    --cy-text: 210 24% 97%;
+    --cy-mute: 216 14% 64%;
+    --cy-signal: 211 100% 61%;
+    --cy-aqua: 199 92% 62%;
+    --cy-caution: 32 76% 58%;
+    --cy-paper: 210 20% 98%;
+    --cy-paperline: 216 20% 88%;
+    --cy-paperink: 222 42% 10%;
+    --cy-papermute: 220 12% 40%;
   }
   .cy-site { font-size: 16px; scroll-behavior: smooth; }
   .cy-grid {
@@ -265,7 +265,21 @@ html:has(.cy-site) { scroll-behavior: smooth; scroll-padding-top: 80px; }
 .cy-capability:hover::before, .cy-capability:focus-within::before { opacity: 1; }
 .cy-button { will-change: transform; }
 .cy-button:active { transform: translateY(0) scale(.98); }
-.cy-magnetic { transition: transform .18s var(--cy-ease), background .22s, color .22s, border-color .22s; }
+/* Staged panels, tabs and demonstrative status indicators. */
+@keyframes cy-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.cy-results > *, .cy-insight > * { animation: cy-fade-up .4s var(--cy-ease) both; }
+.cy-results ol li { animation: cy-fade-up .45s var(--cy-ease) both; }
+.cy-results ol li:nth-child(2) { animation-delay: .07s; }
+.cy-results ol li:nth-child(3) { animation-delay: .14s; }
+.cy-status-dot { position: relative; display: inline-block; }
+.cy-status-dot::after { content: ''; position: absolute; inset: -4px; border-radius: 9999px; border: 1px solid currentColor; animation: cy-halo 2.6s var(--cy-ease) infinite; }
+@keyframes cy-halo { 0% { transform: scale(.5); opacity: .7; } 70%, 100% { transform: scale(1.6); opacity: 0; } }
+.cy-demo-tab, .cy-result-tab { transition: background .2s, color .2s, border-color .25s var(--cy-ease); }
+.cy-signal-node { transition: background .2s, color .2s, border-color .25s, transform .2s var(--cy-ease); }
+.cy-signal-node:hover { transform: translateY(-1px); }
+.cy-demo-tab:focus-visible, .cy-result-tab:focus-visible, .cy-signal-node:focus-visible { outline: 2px solid hsl(var(--cy-signal)); outline-offset: 3px; }
+.cy-demo { transition: border-color .3s, box-shadow .3s; }
+.cy-demo:hover { box-shadow: 0 22px 60px -28px hsl(var(--cy-signal) / .16); }
 @media(max-width:1023px) { .cy-headline { font-size: 52px; } .cy-map { height: 250px; } .cy-hero-visual { grid-template-columns: .65fr 1.35fr; } .cy-signal-node { padding: 8px; } .cy-output { padding: 12px 8px; gap: 6px; } }
 @media(max-width:767px) { .cy-container { padding-inline: 20px; } .cy-section { padding-block: 72px; } .cy-headline { font-size: 40px; line-height: 1.12; } .cy-section-title { font-size: 34px; } .cy-hero .cy-container { padding-top: 112px; } .cy-hero-visual { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; } .cy-hero-visual > div:first-child { display: block; padding-block: 0; } .cy-hero-visual > div:first-child h2 { display: none; } .cy-hero-visual > div:first-child p:last-of-type { display: none; } .cy-hero-visual > div:first-child a { margin-top: 0; } .cy-map { height: 210px; } .cy-core { width: 76px; height: 84px; left: 55%; } .cy-signal-node { gap: 5px; padding: 7px 6px; } .cy-signal-node small { font-size: 8px; } .cy-signal-node span { font-size: 10px; } .cy-output { font-size: 9px; gap: 5px; padding: 10px 7px; } .cy-output svg { width: 12px; } .cy-insight { min-height: 160px; } }
 @media(max-width:390px) { .cy-container { padding-inline: 16px; } .cy-headline { font-size: 36px; } .cy-map { height: 196px; } .cy-core { width: 68px; height: 78px; left: 54%; } .cy-signal-list { width: 31%; } .cy-signal-node svg { width: 13px; } .cy-output { font-size: 8px; } }

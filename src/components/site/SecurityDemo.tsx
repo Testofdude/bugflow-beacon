@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Check, ChevronRight, FileText, Link2, Mail, ScanLine, TriangleAlert } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, FileText, Link2, Mail, ScanLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const examples = {
@@ -21,7 +21,7 @@ export function SecurityDemo() {
         <div className="mt-7 flex items-center gap-2 border-t border-cy-line pt-4 text-xs text-cy-mute"><Check size={13} className="text-cy-aqua"/>Sample loaded <ArrowRight size={13} className="ml-auto"/></div>
       </div>
       <div className="p-5 sm:p-7">
-        <div className="flex items-center gap-2 text-xs text-cy-caution"><TriangleAlert size={15}/>Needs closer review</div><h4 className="mt-3 text-xl font-medium">From warning signs to context.</h4>
+        <div className="flex items-center gap-2 text-xs text-cy-caution"><span className="cy-status-dot h-1.5 w-1.5 rounded-full bg-cy-caution"/>Needs closer review</div><h4 className="mt-3 text-xl font-medium">From warning signs to context.</h4>
         <div role="group" aria-label="Analysis view" className="mt-5 flex gap-5 border-b border-cy-line">{(["findings", "steps"] as const).map(t => <Button key={t} variant="ghost" size="sm" aria-pressed={tab === t} onClick={() => setTab(t)} className={`cy-result-tab ${tab === t ? "cy-result-active" : ""}`}>{t === "findings" ? "Warning signs" : "Recommended action"}</Button>)}</div>
         <div className="cy-results" aria-live="polite" key={`${mode}-${tab}`}>{tab === "findings" ? <ol>{data.findings.map((f, i) => <li className="flex items-center gap-3 border-b border-cy-line py-5 text-sm" key={f}><span className="font-mono text-[10px] text-cy-mute">0{i+1}</span>{f}<ChevronRight size={14} className="ml-auto text-cy-mute"/></li>)}</ol> : <div className="py-6"><span className="font-mono text-[10px] uppercase text-cy-aqua">Verify independently</span><p className="mt-3 text-sm leading-7">{data.recommendation}</p><p className="mt-4 text-xs leading-relaxed text-cy-mute">A warning sign is not proof of malicious activity. Context and independent verification matter.</p></div>}</div>
       </div>

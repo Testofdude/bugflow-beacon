@@ -6,13 +6,7 @@ const logoUrl = "/cyvance-logo.png";
 
 export const Logo = () => <Link to="/" className="cy-logo flex items-center gap-3 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cy-signal" aria-label="Cyvance Security home"><img src={logoUrl} width="44" height="44" alt="" className="h-11 w-11 object-contain"/><span className="cy-wordmark text-sm text-cy-text">CYVANCE<small>SECURITY</small></span></Link>;
 const links = [{ href: "/#services", label: "Solutions", id: "services" }, { href: "/#products", label: "Technology", id: "products" }, { href: "/#about", label: "Company", id: "about" }];
-const magneticMove = (e: React.PointerEvent<HTMLElement>) => {
-  if (e.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const el = e.currentTarget, r = el.getBoundingClientRect();
-  el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.12}px, ${(e.clientY - r.top - r.height / 2) * 0.3 - 2}px)`;
-};
-const magneticReset = (e: React.PointerEvent<HTMLElement>) => { e.currentTarget.style.transform = ""; };
-export const CtaLink = ({ href, children, variant = "primary" }: { href: string; children: React.ReactNode; variant?: "primary" | "ghost" | "paper" }) => <Button asChild variant={variant === "primary" ? "site" : variant === "paper" ? "sitePaper" : "siteOutline"} className="group cy-magnetic h-12 px-5"><a href={href} onPointerMove={magneticMove} onPointerLeave={magneticReset}>{children}<ArrowRight className="transition-transform group-hover:translate-x-1"/></a></Button>;
+export const CtaLink = ({ href, children, variant = "primary" }: { href: string; children: React.ReactNode; variant?: "primary" | "ghost" | "paper" }) => <Button asChild variant={variant === "primary" ? "site" : variant === "paper" ? "sitePaper" : "siteOutline"} className="group h-12 px-5"><a href={href}>{children}<ArrowRight className="transition-transform duration-200 group-hover:translate-x-1"/></a></Button>;
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
