@@ -5,5 +5,5 @@
 - [ ] Use uploaded logo unchanged in navigation, footer and favicon.
 - [ ] Build original product-led homepage, security demonstration and premium interactions.
 - [x] Preserve contact and existing routes; refine navigation and footer.
-- [ ] Premium motion & UI overhaul: navy/blue tokens, hero, button/card/tab micro-interactions, dashboard polish.
-- [ ] Verify desktop/mobile layouts, links, focus, animations and contact submission.
+- [x] Premium motion & UI overhaul: navy/blue tokens, hero, button/card/tab micro-interactions, dashboard polish.
+- [x] Verify desktop/mobile layouts, links, focus, animations and contact submission.
