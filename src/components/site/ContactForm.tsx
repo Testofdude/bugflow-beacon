@@ -14,7 +14,7 @@ const schema = z.object({
   message: z.string().trim().min(10, "Please write at least 10 characters").max(4000),
 });
 
-const field = "mt-2 w-full rounded-md border border-cy-paperline bg-transparent px-3.5 py-3 text-[15px] text-cy-paperink outline-none transition-colors placeholder:text-cy-papermute/60 focus:border-cy-paperink focus:ring-2 focus:ring-cy-signal/30";
+const field = "mt-2 w-full rounded-md border border-cy-paperline bg-transparent px-3.5 py-3 text-[15px] text-cy-paperink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-cy-papermute/60 hover:border-cy-papermute/70 focus:border-cy-paperink focus:ring-2 focus:ring-cy-signal/30";
 
 export const ContactForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
