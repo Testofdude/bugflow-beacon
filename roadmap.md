@@ -7,3 +7,4 @@
 - [x] Preserve contact and existing routes; refine navigation and footer.
 - [x] Premium motion & UI overhaul: navy/blue tokens, hero, button/card/tab micro-interactions, dashboard polish.
 - [x] Verify desktop/mobile layouts, links, focus, animations and contact submission.
+- [x] Final polish pass: no hover movement on buttons, legal page typography aligned, logo optimized (769KB→16KB), full multi-viewport audit passed.
