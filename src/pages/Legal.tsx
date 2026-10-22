@@ -26,9 +26,9 @@ const Legal = ({ kind }: { kind: "privacy" | "terms" }) => {
   return (
     <div className="cy-site min-h-screen bg-cy-ink text-cy-text">
       <Nav />
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-36">
+      <main className="mx-auto max-w-3xl px-6 pb-24 pt-36 sm:px-10">
         <p className="inline-block rounded-full border border-cy-signal/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-cy-signal">Draft — pending legal review</p>
-        <h1 className="mt-6 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{c.title}</h1>
+        <h1 className="mt-6 text-3xl font-medium sm:text-4xl">{c.title}</h1>
         <div className="mt-12 space-y-10">
           {c.sections.map(([h, p]) => (
             <section key={h} className="border-t border-cy-line pt-6">
